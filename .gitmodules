@@ -10,3 +10,9 @@
 [submodule "modules/apt"]
 	path = modules/apt
 	url = https://github.com/puppetlabs/puppetlabs-apt
+[submodule "modules/hiera"]
+	path = modules/hiera
+	url = https://github.com/voxpupuli/puppet-hiera
+[submodule "modules/inifile"]
+	path = modules/inifile
+	url = https://github.com/puppetlabs/puppetlabs-inifile

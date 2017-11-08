@@ -11,5 +11,9 @@ hierarchy:
   - name: "Per-node data (yaml version)"
     path: "nodes/%{::trusted.certname}.yaml"
   - name: "Other YAML hierarchy levels"
+    lookup_key: eyaml_lookup_key 
+    options:
+      pkcs7_private_key: /etc/puppetlabs/puppet/keys/private_key.pkcs7.pem
+      pkcs7_public_key:  /etc/puppetlabs/puppet/keys/public_key.pkcs7.pem
     paths:
       - "common.yaml"
