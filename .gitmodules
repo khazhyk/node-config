@@ -16,3 +16,6 @@
 [submodule "modules/inifile"]
 	path = modules/inifile
 	url = https://github.com/puppetlabs/puppetlabs-inifile
+[submodule "modules/prometheus"]
+	path = modules/prometheus
+	url = https://github.com/voxpupuli/puppet-prometheus
