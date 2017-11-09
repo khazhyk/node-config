@@ -1,7 +1,8 @@
-class base {
+class base (String $home_prefix) {
 	user { 'khazhy_user':
 		name => 'khazhy',
 		ensure => present,
+		home => "${home_prefix}/khazhy",
 		groups => ['sudo']
 	}
 	ssh_authorized_key { 'khazhy@pear':
