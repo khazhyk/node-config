@@ -19,3 +19,9 @@
 [submodule "modules/prometheus"]
 	path = modules/prometheus
 	url = https://github.com/voxpupuli/puppet-prometheus
+[submodule "modules/systemd"]
+	path = modules/systemd
+	url = https://github.com/camptocamp/puppet-systemd
+[submodule "modules/archive"]
+	path = modules/archive
+	url = https://github.com/voxpupuli/puppet-archive
