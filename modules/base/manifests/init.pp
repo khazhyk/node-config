@@ -1,4 +1,4 @@
-class base (String $home_prefix) {
+class base (String $home_prefix = '/home') {
 	user { 'khazhy_user':
 		name => 'khazhy',
 		ensure => present,

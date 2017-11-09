@@ -9,7 +9,7 @@ defaults:
   # data_hash: yaml_data
 hierarchy:
   - name: "Per-node data (yaml version)"
-    path: "nodes/%{::trusted.certname}.yaml"
+    path: "nodes/%{::facts.hostname}.yaml"
   - name: "Other YAML hierarchy levels"
     lookup_key: eyaml_lookup_key 
     options:

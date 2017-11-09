@@ -9,8 +9,6 @@ key: >
     LzmKyTA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDklffOdDEuVUYsmbGS
     OYKYgBB/bLARHzNQRRvlofe6zKr+]
 
-base::home_prefix: /media/hdd2/home
-
 base::sharex::password: >
     ENC[PKCS7,MIIB2gYJKoZIhvcNAQcDoIIByzCCAccCAQAxggEhMIIBHQIBADAFMAACAQEw
     DQYJKoZIhvcNAQEBBQAEggEA0UTDBIJF53WNdVr2ddghFV/eOIEvg2mTdzJb
