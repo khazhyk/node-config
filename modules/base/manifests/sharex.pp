@@ -15,4 +15,14 @@ class base::sharex {
 		mode => '0755',
 		require => User['sharex_user'],
 	}
+	nginx::resource::location { 'sharex_nginx':
+		ensure => 'present',
+		www_root => File['sharex_www']['path'],
+		location => '/sx',
+		server => 'khaz.io',
+		require => [
+			File['sharex_www'],
+			Nginx::Resource::Server['khaz.io'],
+		],
+	}
 }
