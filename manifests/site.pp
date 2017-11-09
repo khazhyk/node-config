@@ -1,5 +1,6 @@
 node default {
     include base
+    include base::sharex
     include cron_puppet
     include web
     file { 'hmmm':
