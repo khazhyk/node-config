@@ -1,10 +1,13 @@
-class base::sharex {
-	$home = '/var/lib/sharex'
+class base::sharex (
+	String $home = '/var/lib/sharex',
+	String $password
+) {
 	user { 'sharex_user':
 		name => 'sharex',
 		ensure => present,
 		home => $home,
 		managehome => true,
+		password => $password,
 		system => true,
 	}
 	file { 'sharex_www':
