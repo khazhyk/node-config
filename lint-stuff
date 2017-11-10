@@ -1,0 +1,3 @@
+submods=$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }')
+excludes=$(echo "$submods" | xargs printf " -path ./%s -o ";)
+find . -type d \( $excludes -false \) -prune -o -name '*.pp' -exec puppet-lint --with-filename -f {} \;
