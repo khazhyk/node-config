@@ -1,6 +1,8 @@
 #!/bin/bash
 
-cd /etc/puppetlabs/code/environments/production/; /usr/bin/git fetch && /usr/bin/git reset --hard origin/master && git submodule sync && git submodule update --init --recursive
+branch=${1:-master}
+
+cd /etc/puppetlabs/code/environments/production/; /usr/bin/git fetch && /usr/bin/git reset --hard origin/${branch} && git submodule sync && git submodule update --init --recursive
 
 /opt/puppetlabs/bin/puppet module list --tree
 /opt/puppetlabs/bin/puppet apply /etc/puppetlabs/code/environments/production/manifests/site.pp
