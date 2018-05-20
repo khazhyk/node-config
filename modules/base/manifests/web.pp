@@ -1,5 +1,7 @@
 class base::web {
-  class { 'nginx': }
+  class { 'nginx':
+    server_purge => true  # Only allow managed websites
+  }
   file { 'web_www':
     ensure  => 'directory',
     owner   => 'khazhy',
