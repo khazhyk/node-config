@@ -28,4 +28,33 @@ class base (
         owner         => 'root',
         group         => 'root',
     }
+
+    class { 'firewall': }
+    firewall { '000 accept all icmp requests':
+        proto  => 'icmp',
+        action => 'accept',
+    }
+
+    firewall { '000 allow existing connections':
+        state  => ['ESTABLISHED','RELATED'],
+        action => 'accept'
+    }
+
+    firewall { '001 accept all ssh':
+        dport  => 22,
+        proto  => 'tcp',
+        action => 'accept',
+    }
+
+    # Temp - allow VPN to access important ports
+    firewall { '050 main access':
+        dport  => ['8081-8100', 5432, 5379, 10050],
+        source => '10.8.0.1',
+        proto  => 'tcp',
+        action => 'accept'
+    }
+
+    firewall { '999 drop all else':
+        action => 'drop'
+    }
 }
