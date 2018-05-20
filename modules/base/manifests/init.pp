@@ -34,22 +34,21 @@ class base (
         proto  => 'icmp',
         action => 'accept',
     }
-
-    firewall { '000 allow existing connections':
-        state  => ['ESTABLISHED','RELATED'],
-        action => 'accept'
-    }
-
-    firewall { '000 allow loopback connections':
+    firewall { '001 allow loopback connections':
         iniface => 'lo',
+        action => 'accept',
+        proto => 'all',
+    }
+    firewall { '002 allow existing connections':
+        state  => ['ESTABLISHED','RELATED'],
+        proto => 'all',
         action => 'accept'
     }
-    firewall { '001 accept all ssh':
+    firewall { '003 accept all ssh':
         dport  => 22,
         proto  => 'tcp',
         action => 'accept',
     }
-
     # Temp - allow VPN to access important ports
     firewall { '050 main access':
         dport  => ['8081-8100', 5432, 6379, 10050],
@@ -59,6 +58,7 @@ class base (
     }
 
     firewall { '999 drop all else':
-        action => 'drop'
+        action => 'drop',
+        proto => 'all',
     }
 }
