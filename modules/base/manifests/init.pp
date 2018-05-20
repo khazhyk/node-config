@@ -40,6 +40,10 @@ class base (
         action => 'accept'
     }
 
+    firewall { '000 allow loopback connections':
+        iniface => 'lo',
+        action => 'accept'
+    }
     firewall { '001 accept all ssh':
         dport  => 22,
         proto  => 'tcp',
