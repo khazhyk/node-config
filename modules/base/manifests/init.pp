@@ -24,6 +24,8 @@ class base (
     }
     class { 'hiera':
         hiera_version =>  '5',
-        eyaml         => true
+        eyaml         => true,
+        owner         => 'root',
+        group         => 'root',
     }
 }
