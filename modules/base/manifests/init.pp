@@ -48,7 +48,7 @@ class base (
 
     # Temp - allow VPN to access important ports
     firewall { '050 main access':
-        dport  => ['8081-8100', 5432, 5379, 10050],
+        dport  => ['8081-8100', 5432, 6379, 10050],
         source => '10.8.0.1',
         proto  => 'tcp',
         action => 'accept'
