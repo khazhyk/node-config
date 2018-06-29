@@ -7,7 +7,8 @@ class base (
         name   => 'khazhy',
         home   => "${home_prefix}/khazhy",
         managehome => true,
-        groups => ['sudo']
+        groups => ['sudo'],
+        shell => '/bin/bash',
     }
 
     $ssh_keys.each |String $value| {
