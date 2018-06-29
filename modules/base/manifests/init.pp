@@ -3,12 +3,12 @@ class base (
     Array[String] $ssh_keys = [],
     ) {
     user { 'khazhy_user':
-        ensure => present,
-        name   => 'khazhy',
-        home   => "${home_prefix}/khazhy",
+        ensure     => present,
+        name       => 'khazhy',
+        home       => "${home_prefix}/khazhy",
         managehome => true,
-        groups => ['sudo'],
-        shell => '/bin/bash',
+        groups     => ['sudo'],
+        shell      => '/bin/bash',
     }
 
     $ssh_keys.each |String $value| {
@@ -38,12 +38,12 @@ class base (
     }
     firewall { '001 allow loopback connections':
         iniface => 'lo',
-        action => 'accept',
-        proto => 'all',
+        action  => 'accept',
+        proto   => 'all',
     }
     firewall { '002 allow existing connections':
         state  => ['ESTABLISHED','RELATED'],
-        proto => 'all',
+        proto  => 'all',
         action => 'accept'
     }
     firewall { '003 accept all ssh':
@@ -61,6 +61,6 @@ class base (
 
     firewall { '999 drop all else':
         action => 'drop',
-        proto => 'all',
+        proto  => 'all',
     }
 }
