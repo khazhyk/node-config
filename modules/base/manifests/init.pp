@@ -6,6 +6,7 @@ class base (
         ensure => present,
         name   => 'khazhy',
         home   => "${home_prefix}/khazhy",
+        managehome => true,
         groups => ['sudo']
     }
 
