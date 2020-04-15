@@ -4,3 +4,8 @@ node default {
     include base::sharex
     include cron_puppet
 }
+
+node cicini {
+    include base::database
+    include base::redis
+}
