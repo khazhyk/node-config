@@ -46,6 +46,12 @@ class base (
         proto  => 'all',
         action => 'accept'
     }
+    firewall { '002 cicini vpn':
+        source => '10.40.0.1/24',
+        destination    => '10.40.0.1/24',
+        proto  => 'all',
+        action => 'accept'
+    }
     firewall { '003 accept all ssh':
         dport  => 22,
         proto  => 'tcp',
@@ -58,7 +64,6 @@ class base (
         proto  => 'tcp',
         action => 'accept'
     }
-
     firewall { '999 drop all else':
         action => 'drop',
         proto  => 'all',

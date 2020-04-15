@@ -16,10 +16,26 @@ sudo apt update
 
 sudo apt install puppet-agent  # make sure this is using puppetlabs repo
 
-rm -r /etc/puppetlabs/code/environments/production
-git clone https://github.com/khazhyk/node-nacl production
+# get r10k
+# 
+/opt/puppetlabs/puppet/bin/gem install r10k
+
+# setup r10k config
+mkdir /etc/puppetlabs/r10k
+cat <<YAML > /etc/puppetlabs/r10k/r10k.yaml
+:cachedir: '/var/cache/r10k'
+
+:sources:
+  :khazhyk:
+    remote: 'https://github.com/khazhyk/node-config'
+    basedir: '/etc/puppetlabs/code/environments'
+
+YAML
 
 # copy /etc/puppetlabs/puppet/keys over
+
+# run cron-puppet contents once
+
 ```
 
 For first run, manually run cron-puppet contents

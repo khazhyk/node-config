@@ -1,3 +1,10 @@
+classes:
+ - 'profile::base'
+
+ntp::servers:
+ - 0.us.pool.ntp.org
+ - 1.us.pool.ntp.org
+
 base::sharex::password: >
     ENC[PKCS7,MIIB2gYJKoZIhvcNAQcDoIIByzCCAccCAQAxggEhMIIBHQIBADAFMAACAQEw
     DQYJKoZIhvcNAQEBBQAEggEA0UTDBIJF53WNdVr2ddghFV/eOIEvg2mTdzJb

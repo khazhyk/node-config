@@ -1,3 +1,5 @@
-class { '::redis':
-  bind => ['127.0.0.1', '::1']
+class base::redis {
+  class { '::redis':
+    bind => ['127.0.0.1', '::1']
+  }
 }
