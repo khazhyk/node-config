@@ -29,7 +29,7 @@ node 'cicini.khaz.io' {
     }
     openvpn::client { 'erina':
         server      => 'cicini',
-        proto        => 'udp',
+        proto       => 'udp',
         remote_host => $facts['fqdn']
     }
     firewall { '050 accept all openvpn':

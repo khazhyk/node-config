@@ -47,10 +47,10 @@ class base (
         action => 'accept'
     }
     firewall { '002 cicini vpn':
-        source => '10.40.0.1/24',
-        destination    => '10.40.0.1/24',
-        proto  => 'all',
-        action => 'accept'
+        source      => '10.40.0.1/24',
+        destination => '10.40.0.1/24',
+        proto       => 'all',
+        action      => 'accept'
     }
     firewall { '003 accept all ssh':
         dport  => 22,

@@ -29,8 +29,8 @@ class dango::db (
   String $username = 'spoo'
 ){
     postgresql::server::db {'spoodb':
-        dbname           => $username,
-        user             => $username,
-        password         => '',
+        dbname   => $username,
+        user     => $username,
+        password => '',
     }
 }
