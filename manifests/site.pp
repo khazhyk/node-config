@@ -32,6 +32,9 @@ node 'cicini.khaz.io' {
         proto       => 'udp',
         remote_host => $facts['fqdn']
     }
+    openvpn::revoke { 'erina':
+          server=> 'cicini'
+    }
     firewall { '050 accept all openvpn':
         dport  => 1194,
         proto  => 'udp',
