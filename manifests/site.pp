@@ -7,6 +7,7 @@ node default {
     include base::web
     include base::sharex
     include cron_puppet
+    include prometheus::node_exporter
 }
 
 node 'cicini.khaz.io' {
@@ -14,9 +15,11 @@ node 'cicini.khaz.io' {
     include base::web
     include base::sharex
     include cron_puppet
+    include prometheus::node_exporter
 
     include base::database
     include base::redis
+    include base::prometheus
     openvpn::server { 'cicini':
         country      => 'CA',
         province     => 'QC',
