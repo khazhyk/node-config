@@ -1,6 +1,7 @@
 # One prometheus server, and every node has prometheus exporters
 class base::prometheus {
   class { '::prometheus::server':
+    storage_retention        => "90d",
     scrape_configs           => [
       {
         'job_name'        => 'prometheus',
