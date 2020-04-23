@@ -20,6 +20,7 @@ node 'cicini.khaz.io' {
     include base::database
     include base::redis
     include base::prometheus
+    include grafana
     openvpn::server { 'cicini':
         country      => 'CA',
         province     => 'QC',
