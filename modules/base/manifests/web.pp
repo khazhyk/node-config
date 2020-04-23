@@ -15,6 +15,7 @@ class base::web {
     www_root             => "${::User['khazhy_user']['home']}/www",
     require              => User['khazhy_user'],
     use_default_location => false,
+    location_cfg_append  => {'rewrite' => '^ https://$server_name$request_uri? permanent'},
   }
 
 

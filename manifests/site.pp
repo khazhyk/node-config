@@ -20,7 +20,19 @@ node 'cicini.khaz.io' {
     include base::database
     include base::redis
     include base::prometheus
-    include grafana
+    class { 'grafana':
+        cfg => {
+            server => {
+                root_url            => '%(protocol)s://%(domain)s:%(http_port)s/graf/',
+                serve_from_sub_path => true
+            },
+        }
+    }
+    nginx::resource::location { '/graf':
+        ensure => present,
+        server => 'khaz.io',
+        proxy  => 'http://localhost:3000',
+    }
     openvpn::server { 'cicini':
         country      => 'CA',
         province     => 'QC',
