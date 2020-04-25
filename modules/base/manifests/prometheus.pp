@@ -20,6 +20,16 @@ class base::prometheus {
           'targets' => ['localhost:9100'],
           'labels'  => {'alias' => 'Node'}
         }]
+      },
+      {
+        'job_name'        => 'spooprod',
+        'scrape_interval' => '15s',
+        'scrape_timeout'  => '15s',
+        'static_configs'  => [{
+          'targets' => map(range(8081, 8081+19)) | $p | { "localhost:${p}" },
+          'labels'  => {'alias' => 'spoo.py prod'}
+        }]
+
       }
     ]
   }
