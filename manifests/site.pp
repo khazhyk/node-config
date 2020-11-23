@@ -57,6 +57,12 @@ node 'cicini.khaz.io' {
         action => 'accept',
     }
 
+    firewall { '050 accept all cls':
+        dport => 9736,
+        proto => 'tcp',
+        action => 'accept'
+    }
+
     class { 'dango::bot':
         ssh_keys => lookup('base::ssh_keys')
     }
